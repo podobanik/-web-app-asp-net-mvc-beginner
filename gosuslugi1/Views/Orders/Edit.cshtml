@@ -1,0 +1,10 @@
+﻿@using gosuslugi1.Models;
+@model Order
+
+@using (Html.BeginForm("Edit", "Orders", FormMethod.Post))
+{
+    @Html.ValidationSummary();
+    @Html.EditorForModel()
+    <input type="submit" value="Сохранить" />
+    @Html.ActionLink("Отменить", "Index", "Orders")
+}

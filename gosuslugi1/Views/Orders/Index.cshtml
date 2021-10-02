@@ -1,0 +1,56 @@
+﻿@using gosuslugi1.Models;
+@model List<Order>
+
+@Html.ActionLink("Добавить услуги", "Create", "Orders")
+
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Название услуги
+            </th>
+            <th>
+                Дата записи
+            </th>
+            <th>
+                Имя клиента
+            </th>
+            <th>
+                Фамилия клиента
+            </th>
+            <th>
+                Дата рождения клиента
+            </th>
+            <th>
+                Действия
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+        <tr>
+            <td>
+                @order.Title
+            </td>
+            <td>
+                @order.Date.ToString("dd.MM.yyyy H:mm")
+            </td>
+            <td>
+                @order.Name
+            </td>
+            <td>
+                @order.Surname
+            </td>
+            <td>
+                @order.Date_of_Birth.ToString("dd.MM.yyyy")
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "Delete", "Orders", new { id = order.Id }, new { })
+                @Html.ActionLink("Изменить", "Edit", "Orders", new { id = order.Id }, new { })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
